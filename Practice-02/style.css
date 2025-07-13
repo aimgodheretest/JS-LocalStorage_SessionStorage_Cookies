@@ -1,0 +1,73 @@
+/* Root theme variables for light mode */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222222;
+  --accent-color: #4c8bf5;
+}
+
+/* Dark theme overrides, applied when a .dark class is on <body> */
+body.dark {
+  --bg-color: #121212;
+  --text-color: #eeeeee;
+  --accent-color: #bb86fc;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+  max-width: 600px;
+  margin: 4rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Toggle switch styling */
+.theme-switch {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.theme-switch input {
+  display: none;
+}
+
+.theme-switch .slider {
+  position: relative;
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.3s;
+}
+
+.theme-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 22px;
+  width: 22px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+.theme-switch input:checked + .slider {
+  background-color: var(--accent-color);
+}
+
+.theme-switch input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+.label-text {
+  font-size: 1rem;
+}
